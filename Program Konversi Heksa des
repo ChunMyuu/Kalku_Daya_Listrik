@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int hexDigitValue(char c) {
+    if (c >= '0' && c <= '9')
+        return c - '0';
+    c = toupper(c);
+    if (c >= 'A' && c <= 'F')
+        return 10 + (c - 'A');
+    return -1;  // karakter tidak valid
+}
+
+void heksaKeDesimal() {
+    char hex[100];
+    int panjang, i, posisi = 0;
+    long long hasil = 0;
+
+    printf("\n--- Konversi Heksadesimal ke Desimal ---\n");
+    printf("Masukkan bilangan heksadesimal: ");
+    scanf("%s", hex);
+
+    panjang = strlen(hex);
+
+    // Iterasi dari kanan ke kiri
+    for (i = panjang - 1; i >= 0; i--) {
+        int nilaiDigit = hexDigitValue(hex[i]);
+
+        if (nilaiDigit < 0) {
+            printf("Digit tidak valid: %c\n", hex[i]);
+            return;
+        }
+
+        long long kontribusi = nilaiDigit;
+        for (int p = 0; p < posisi; p++)
+            kontribusi *= 16;
+
+        hasil += kontribusi;
+        posisi++;
+    }
+
+    printf("Hasil Desimal: %lld\n", hasil);
+}
