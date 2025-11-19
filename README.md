@@ -1,2 +1,2 @@
-# Kalku_Daya_Listrik
+# Kalku_Daya_Listrik_Dan_Konversi_HeksaDes
 Project Dasprog
