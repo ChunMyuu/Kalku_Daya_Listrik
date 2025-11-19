@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+
+void kalkulatorDaya() {
+    double V, I, P;
+
+    printf("\n--- Kalkulator Daya Listrik (P = V * I) ---\n");
+    printf("Masukkan Tegangan (V): ");
+    scanf("%lf", &V);
+    printf("Masukkan Arus (I): ");
+    scanf("%lf", &I);
+
+    P = V * I;
+    printf("Daya Listrik: %.4lf Watt\n", P);
+}
